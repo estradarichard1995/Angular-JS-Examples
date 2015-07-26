@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Using Directive and Data Binding Syntax</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Using Directive and Data Binding Syntax</h1>
+		Name : <input type="text" ng-model="myname" /> {{ myname }}
+
+	<h2>Iterating with the ng-repeat Directive</h2>
+		<div class="container" ng-init="names=['John Smith', 'John Doe', 'Jane Doe']">
+			<ul>
+				<li ng-repeat="personName in names"> {{ personName }} </li>
+			</ul>
+		</div>
+
+	<h2>Using Filters</h2>
+		Name : <input type="text" ng-model="fname" /> {{ fname | uppercase }}
+
+		<div class="container" ng-init="customers=[{name:'John Smith', city:'Calefornia'} , {name:'John Doe', city:'Texas'} , {name:'John Cena', city:'Merlin'} , {name:'Jane Doe', city:'Vatica'} , {name:'Richard Doe', city:'Cagayan de Oro City'} , {name:'Marl Smith', city:'Must'} ] ">
+			<ul>
+				<li ng-repeat="cust in customers | filter:fname | orderBy:'city'"> Name : {{ cust.name }} - City : {{ cust.city }} </li>
+			</ul>
+		</div>
+
+	</div>
+
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+</body>
+</html>

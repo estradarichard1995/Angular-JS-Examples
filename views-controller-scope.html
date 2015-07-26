@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+	<title>View ,  Controller and Scope</title>
+</head>
+<body>
+	<h1>View Controller and Scope</h1>
+
+	<div class="container">
+		Name : <input type="text" ng-model="samplename" />
+
+	<div class="container" ng-controller="SimpleController"> 
+		<ul>
+			<li ng-repeat="cust in customers | filter:samplename ">
+				{{cust.name}} - {{ cust.city }}
+			</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+
+	<script type="text/javascript">
+	var app = angular.module('myapp',[]);
+		app.controller('SimpleController', function($scope) {
+    		$scope.customers = [
+				{name:'John Smith', city:'Calefornia'} , 
+				{name:'John Doe', city:'Texas'} , 
+				{name:'John Cena', city:'Merlin'} , 
+				{name:'Jane Doe', city:'Vatica'} , 
+				{name:'Richard Doe', city:'Cagayan de Oro City'} , 
+				{name:'Marl Smith', city:'Must'} 
+			];
+		});
+
+	</script>
+</body>
+</html>
